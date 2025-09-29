@@ -51,7 +51,7 @@ class DonationTest extends TestCase
         $this->assertDatabaseCount('users', 1);
         $this->assertDatabaseCount('donations', 0);
 
-        $response = $this->actingAs($user)->postJson('/api/donation', $payload);
+        $response = $this->actingAs($user)->postJson('/api/donations', $payload);
 
         $response->assertStatus(Response::HTTP_CREATED)
             ->assertJson([

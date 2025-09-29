@@ -8,5 +8,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post('/donation', [DonationController::class, 'store'])
+Route::post('/donations', [DonationController::class, 'store'])
     ->middleware('auth:sanctum');
