@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\DonationStatus;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +18,8 @@ class DonationFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1,
-            'amount' => 100.00,
+            'user_id' => User::factory(),
+            'amount' => fake()->randomFloat(nbMaxDecimals: 2, min: 1, max: 500),
             'currency' => 'CAD',
             'donated_at' => now(),
         ];

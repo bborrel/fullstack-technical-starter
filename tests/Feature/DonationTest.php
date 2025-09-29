@@ -15,7 +15,6 @@ class DonationTest extends TestCase
 
     public function test_donation_edition_via_model(): void
     {
-        $user = User::factory()->create();
         $donation = Donation::factory()->create();
 
         $this->assertDatabaseCount('users', 1);
@@ -40,6 +39,7 @@ class DonationTest extends TestCase
 
     public function test_donation_edition_via_api(): void
     {
+        /** @var User $user */
         $user = User::factory()->create();
         $token = $user->createToken('TestToken')->plainTextToken;
 
