@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\DonationStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,10 @@ class DonationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'user_id' => 1,
+            'amount' => 100,
+            'currency' => 'CAD',
+            'donated_at' => now(),
         ];
     }
 }
