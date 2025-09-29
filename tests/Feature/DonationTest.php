@@ -131,7 +131,6 @@ class DonationTest extends TestCase
 
         // ACT
         $response = $this->actingAs($user)->getJson("/api/donations/history/{$user->id}");
-        print_r($response->json());
 
         // ASSERT
         $response->assertStatus(Response::HTTP_OK)
