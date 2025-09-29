@@ -10,3 +10,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/donations', [DonationController::class, 'store'])
     ->middleware('auth:sanctum');
+
+Route::patch('/donations/{donation}', [DonationController::class, 'update'])
+    ->middleware('auth:sanctum');
+
