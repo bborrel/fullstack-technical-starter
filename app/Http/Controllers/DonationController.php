@@ -2,9 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreDonationRequest;
+use App\Models\Donation;
+use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 class DonationController extends Controller
 {
-    //
+    public function store(StoreDonationRequest $request): JsonResponse
+    {
+        $validated = $request->validated();
+
+        $donation = Donation::create([
+            'user_id' => $request->user()->id,
+            'amount' => $validated['amount'],
+            'currency' => strtoupper($validated['currency']),
+            'donated_at' => now(),
+        ])->refresh();
+
+        return response()->json([
+            'message' => 'Donation created successfully',
+            'donation' => $donation,
+        ], Response::HTTP_CREATED);
+    }
 }

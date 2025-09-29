@@ -19,7 +19,7 @@ class DonationFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'amount' => 100,
+            'amount' => 100.00,
             'currency' => 'CAD',
             'donated_at' => now(),
         ];

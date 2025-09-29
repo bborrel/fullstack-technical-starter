@@ -17,6 +17,10 @@ class Donation extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'user_id',
+        'amount',
+        'currency',
+        'donated_at',
         'status',
     ];
 
