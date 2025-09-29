@@ -22,6 +22,7 @@ class Donation extends Model
         'currency',
         'donated_at',
         'status',
+        'recurring_donation_id',
     ];
 
     /**
